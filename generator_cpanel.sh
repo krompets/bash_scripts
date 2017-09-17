@@ -1,10 +1,10 @@
 #!/bin/bash
 
-COUNT_USERS=1
+COUNT_USERS=5
 USERS_LIST=""
 STRESS_COMMAND="stress --cpu 1 --io 1 --vm 1 --vm-bytes 128M --timeout 10s -d 1"
 MYSQLSLAP_COMMAND="mysqlslap  time mysqluser2_db --host=localhost --concurrency=20 --iterations=20 --auto-generate-sql --number-char-cols=50 --number-int-cols=100"
-USER_PASSWORD="IfinthXtvgbjy1"
+USER_PASSWORD="If[nthXtvgbjy1"
 
 function install_needed_pkgs {
     local result1=$(rpm -qa stress | grep -i "stress")
@@ -60,4 +60,4 @@ install_needed_pkgs;
 create_users > /dev/null;
 #run_stress > $(pwd)/stress.log;
 run_stress;
-remove_users > /dev/null;
+#remove_users > /dev/null;
