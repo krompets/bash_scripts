@@ -1,11 +1,11 @@
 #!/bin/bash
-cp /etc/trueuserowners /root/list
-awk '{print $2}' /root/list|sort -u /root/owners
+rm -r -f /tmp/list-res
+awk '{print $2}' /etc/trueuserowners|sort -u >> /tmp/list-res
 index=0
 while read line; do
     array[$index]="$line"
     index=$(($index+1))
-done < /root/owners
+done < /tmp/list-res
 
 for ((a=0; a < ${#array[*]}; a++))
 do
